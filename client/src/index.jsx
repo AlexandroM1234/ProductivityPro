@@ -3,11 +3,22 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ToDo from "./Components/ToDo";
+import Pomodoro from "./Components/Pomodoro ";
+import Timer from "./Components/Timer";
 
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
-      <App />
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="ToDo" element={<ToDo />} />
+          <Route path="Timer" element={<Timer />} />
+          <Route path="Pomodoro" element={<Pomodoro />} />
+        </Routes>
+      </Router>
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById("root")
