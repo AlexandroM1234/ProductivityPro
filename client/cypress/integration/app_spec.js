@@ -1,6 +1,6 @@
 describe("The Home Page", () => {
+  cy.visit("/");
   it("Renders the Title", () => {
-    cy.visit("/");
     cy.get("h1").should("have.text", "Productivity Pro");
   });
 
@@ -12,4 +12,6 @@ describe("The Home Page", () => {
       cy.go("back");
     });
   });
+
+  it("Color Mode Toggle Works", () => {});
 });

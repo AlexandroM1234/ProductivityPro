@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
+import theme from "./theme";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ToDo from "./Components/ToDo";
 import Pomodoro from "./Components/Pomodoro ";
@@ -11,6 +12,7 @@ import Timer from "./Components/Timer";
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <Router>
         <Routes>
           <Route path="/" element={<App />} />
