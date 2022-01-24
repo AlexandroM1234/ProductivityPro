@@ -1,23 +1,20 @@
 import React from "react";
-import { Link as ReachLink } from "react-router-dom";
-import { Link } from "@chakra-ui/react";
-import { Heading, Flex } from "@chakra-ui/react";
-import ColorModeToggle from "./Components/ColorModeToggle";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./Components/Layout";
+import ToDo from "./Components/ToDo/ToDo";
+import Timer from "./Components/Timer";
+import Pomodoro from "./Components/Pomodoro ";
+
 const App = () => {
   return (
-    <Flex justify={"space-evenly"} marginTop={"2"} alignItems={"center"}>
-      <Heading as="h1">Productivity Pro</Heading>
-      <Link as={ReachLink} to={"ToDo"}>
-        ToDo
-      </Link>
-      <Link as={ReachLink} to={"Timer"}>
-        Timer
-      </Link>
-      <Link as={ReachLink} to={"Pomodoro"}>
-        Pomodoro
-      </Link>
-      <ColorModeToggle />
-    </Flex>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<ToDo />} />
+        <Route path="ToDo" element={<ToDo />} />
+        <Route path="Pomodoro" element={<Pomodoro />} />
+        <Route path="Timer" element={<Timer />} />
+      </Route>
+    </Routes>
   );
 };
 
