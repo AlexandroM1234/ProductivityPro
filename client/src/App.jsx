@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Components/Layout";
-import ToDo from "./Components/ToDo";
+import ToDo from "./Components/ToDo/ToDo";
 import Timer from "./Components/Timer";
 import Pomodoro from "./Components/Pomodoro ";
 
