@@ -79,7 +79,9 @@ const ToDo = () => {
               />
             </FormControl>
 
-            <Button type="submit">Submit</Button>
+            <Button className="submit" type="submit">
+              Submit
+            </Button>
           </form>
         </Flex>
 

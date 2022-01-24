@@ -18,4 +18,21 @@ describe("The Home Page", () => {
     cy.get("#colorModeToggle").click();
     cy.get("body").should("have.css", "background-color", "rgb(26, 32, 44)");
   });
+
+  it("Inputing a new to do ", () => {
+    cy.get("input").type("Hello World");
+    cy.get(".submit").click();
+    cy.get(".toDoCard").should("have.text", "Hello World");
+
+    cy.get(".completeButton").click();
+
+    cy.get(".toDoText").should(
+      "have.css",
+      "text-decoration-line",
+      "line-through"
+    );
+
+    cy.get(".deleteButton").click();
+    cy.get(".toDoCard").should("not.exist");
+  });
 });
