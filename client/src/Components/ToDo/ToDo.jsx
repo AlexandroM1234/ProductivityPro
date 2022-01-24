@@ -38,6 +38,14 @@ const ToDo = () => {
     setToDo(e.target.value);
   };
 
+  // Completed To Do function to mark a to do completed
+  const completedToDo = (id) => {
+    const newToDos = [...toDos];
+    const completed = newToDos.find((td) => td.id === id);
+    completed.completed = true;
+    setToDos(newToDos);
+  };
+
   // is Error for the form control to detect errors inputing a to do
   const isError = toDo === "";
 
@@ -70,7 +78,7 @@ const ToDo = () => {
         </Flex>
 
         {/* To Do List */}
-        <ToDoList toDos={toDos} />
+        <ToDoList toDos={toDos} completed={completedToDo} />
       </Flex>
     </Box>
   );
