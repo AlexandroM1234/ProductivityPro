@@ -2,7 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import React from "react";
 import ToDoCard from "./ToDoCard";
 
-const ToDoList = ({ toDos, completed }) => {
+const ToDoList = ({ toDos, completed, deleteToDo }) => {
   return (
     <Flex
       justifyContent={"space-between"}
@@ -10,7 +10,14 @@ const ToDoList = ({ toDos, completed }) => {
       alignItems={"center"}
     >
       {toDos.map((toDo) => {
-        return <ToDoCard key={toDo.id} toDo={toDo} completed={completed} />;
+        return (
+          <ToDoCard
+            key={toDo.id}
+            toDo={toDo}
+            completed={completed}
+            deleteToDo={deleteToDo}
+          />
+        );
       })}
     </Flex>
   );

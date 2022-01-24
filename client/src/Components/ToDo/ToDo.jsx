@@ -40,14 +40,20 @@ const ToDo = () => {
 
   // Completed To Do function to mark a to do completed
   const completedToDo = (id) => {
+    // Have a copy of the to dos
     const newToDos = [...toDos];
+    // Find the to do to mark completed
     const completed = newToDos.find((td) => td.id === id);
+    // set the completed to True
     completed.completed = true;
+    // then set the to dos to the new to dos
     setToDos(newToDos);
   };
 
-  // is Error for the form control to detect errors inputing a to do
-  const isError = toDo === "";
+  const deleteToDo = (id) => {
+    const filteredToDos = toDos.filter((td) => td.id !== id);
+    setToDos(filteredToDos);
+  };
 
   return (
     <Box w={"100%"} h={"100%"}>
@@ -64,7 +70,7 @@ const ToDo = () => {
         {/* Form Container  */}
         <Flex margin={4}>
           <form onSubmit={handleSubmit}>
-            <FormControl isInvalid={isError}>
+            <FormControl isRequired>
               <Input
                 name="task"
                 value={toDo}
@@ -78,7 +84,11 @@ const ToDo = () => {
         </Flex>
 
         {/* To Do List */}
-        <ToDoList toDos={toDos} completed={completedToDo} />
+        <ToDoList
+          toDos={toDos}
+          completed={completedToDo}
+          deleteToDo={deleteToDo}
+        />
       </Flex>
     </Box>
   );
