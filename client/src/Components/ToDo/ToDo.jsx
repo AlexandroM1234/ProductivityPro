@@ -5,6 +5,7 @@ import {
   Input,
   Button,
   FormControl,
+  FormLabel,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import ToDoList from "./ToDoList";
@@ -58,7 +59,7 @@ const ToDo = () => {
   return (
     <Box w={"100%"} h={"100%"}>
       {/* Heading Section  */}
-      <Flex justifyContent={"center"} margin={5} h={32}>
+      <Flex alignItems={"center"} justifyContent={"center"} margin={5} h={32}>
         <Heading size={"xl"}>To Do List</Heading>
       </Flex>
       {/* Main Content Container */}
@@ -68,18 +69,20 @@ const ToDo = () => {
         alignItems={"center"}
       >
         {/* Form Container  */}
-        <Flex margin={4}>
+        <Flex>
           <form onSubmit={handleSubmit}>
             <FormControl isRequired>
+              <FormLabel>Add a To Do</FormLabel>
               <Input
                 name="task"
                 value={toDo}
                 onChange={handleChange}
                 placeholder="Insert a To Do"
+                w={"xl"}
               />
             </FormControl>
 
-            <Button className="submit" type="submit">
+            <Button className="submit" type="submit" marginTop={2}>
               Submit
             </Button>
           </form>
