@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Timer = () => {
   // Set State as a time object
   const [time, setTime] = useState({
-    seconds: 50,
+    seconds: 0,
     minutes: 0,
     hours: 0,
   });
